@@ -1,9 +1,9 @@
-title : 'GoldFish TV'
+title : 'KURO-RS'
 
 # mongo db config
 mongo_server : '127.0.0.1'
 mongo_port : 27017
-mongo_dbname : 'goldfish-tv'
+mongo_dbname : 'kuro-rs'
 
 # kuro-rs config
-kuro_rs_server : 'http://localhost:8786'
+kuro_rs_server : 'http://192.168.1.100:8786'

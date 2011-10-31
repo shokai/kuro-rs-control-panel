@@ -1,6 +1,5 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'kuro-rs'
 require 'rack'
 require 'sinatra/reloader' if development?
 require 'mongoid'

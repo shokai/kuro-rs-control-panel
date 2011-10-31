@@ -11,6 +11,10 @@ get '/' do
   haml :index
 end
 
+get '/list.json' do
+  IR.all.asc(:name).map{|ir| ir.to_hash}.to_json
+end
+
 get '/kuro-rs.json' do
   uri = URI.parse kuro_rs_server
   res = Net::HTTP.start(uri.host, uri.port).get(uri.path)

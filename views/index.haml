@@ -3,4 +3,10 @@
   %head
     %title= @title
   %body
-    %h1= @title
+    %div#header
+      %h1= @title
+    %div#main
+      %ul#irs
+        - @irs.each do |ir|
+          %li{:id => ir.name}
+            %a{:href => "#{app_root}/ir/#{ir.name}"}= ir.name

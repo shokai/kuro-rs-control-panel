@@ -7,6 +7,7 @@ before '*.json' do
 end
 
 get '/' do
+  @irs = IR.all.asc(:name)
   haml :index
 end
 

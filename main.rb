@@ -36,17 +36,31 @@ post '/kuro-rs.json' do
 end
 
 get '/ir/:name.json' do
-  @ir_name = params[:name]
-  @ir = IR.where(:name => @ir_name).first rescue @ir = nil
-  if @ir
-    @ir.to_hash.to_json
+  ir_name = params[:name]
+  ir = IR.where(:name => ir_name).first rescue ir = nil
+  if ir
+    status 200
+    ir.to_hash.to_json
   else
-    {:error => 'not found'}.to_json
+    status 404
+    {:err => 'not found'}.to_json
   end
 end
 
 post '/ir/:name.json' do
-  @ir_name = params[:name]
+  ir_name = params[:name]
+  data = params['data']
+  ir = IR.where(:name => ir_name).first rescue ir = nil
+  ir = IR.new(:name => ir_name) unless ir
+  ir.data = data
+  begin
+    ir.save
+    status 200
+    @mes = ir.to_hash.to_json
+  rescue => e
+    status 500
+    @mes = {:err => e.to_s}.to_json
+  end
 end
 
 get '/ir/:name' do

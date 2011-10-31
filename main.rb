@@ -64,7 +64,6 @@ post '/ir/:name.json' do
 end
 
 get '/ir/:name' do
-  @title = "#{@title} - IR:#{params[:name]}"
   ir_name = params[:name]
   @ir = IR.where(:name => ir_name).first rescue @ir = nil
   @ir = IR.new(:name => ir_name) unless @ir

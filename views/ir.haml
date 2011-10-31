@@ -1,7 +1,7 @@
 !!! XHTML
 %html
   %head
-    %title= @title
+    %title= "#{@title} - IR:#{@ir.name}"
     :javascript
       var app_root = "#{app_root}";
       var ir = #{@ir.to_hash.to_json};
@@ -10,7 +10,8 @@
     %link{:rel => 'stylesheet', :type => 'text/css', :href => "#{app_root}/css/ir.css"}
   %body
     %div#header
-      %h1= @title
+      %a{:href => app_root}= @title
+      %h1= @ir.name
     %div#main
       %div
         %input{:type => :button, :value => 'Read IR DATA', :id => :btn_read}

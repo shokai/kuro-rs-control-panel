@@ -1,0 +1,9 @@
+title : 'GoldFish TV'
+
+# mongo db config
+mongo_server : '127.0.0.1'
+mongo_port : 27017
+mongo_dbname : 'goldfish-tv'
+
+# kuro-rs config
+kuro_rs_server : 'http://localhost:8786'

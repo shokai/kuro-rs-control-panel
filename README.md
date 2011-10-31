@@ -38,7 +38,7 @@ start Sinatra app
 
     % ruby development.ru
 
-open [http://localhost:8080](http://localhost:8787)
+open [http://localhost:8787](http://localhost:8787)
 
 
 

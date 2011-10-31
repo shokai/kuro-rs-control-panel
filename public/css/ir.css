@@ -1,0 +1,15 @@
+div#main {
+     width : 100%;
+}
+
+div#operate {
+  margin-top : 25px;
+}
+
+div.data, div.api {
+  width : 80%;
+}
+
+textarea {
+         width : 100%;
+}

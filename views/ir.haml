@@ -1,0 +1,28 @@
+!!! XHTML
+%html
+  %head
+    %title= @title
+    :javascript
+      var app_root = "#{app_root}";
+      var ir = #{@ir.to_hash.to_json};
+    %script{:type => 'application/javascript', :src => "#{app_root}/js/jquery.js"}
+    %script{:type => 'application/javascript', :src => "#{app_root}/js/ir.js"}
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => "#{app_root}/css/ir.css"}
+  %body
+    %div#header
+      %h1= @title
+    %div#main
+      %div
+        %input{:type => :button, :value => 'Read IR DATA', :id => :btn_read}
+      %div#operate
+        %input{:type => :button, :value => 'Save DATA', :id => :btn_save}
+        %input{:type => :button, :value => 'Send IR', :id => :btn_write}
+        %div.data
+          %h2 IR DATA
+          %textarea#data
+        %div.api
+          %h2 API
+          %h3 GET
+          %div#get
+          %h3 POST
+          %textarea#api

@@ -11,11 +11,13 @@ Dependencies
 * MongoDB 2.0+
 * Sinatra 1.3+
 * [KURO-RS](http://www.kuroutoshikou.com/modules/display/?iid=928) or [PC-OP-RS1](http://buffalo.jp/products/catalog/item/p/pc-op-rs1/)
+* kuro-rs (RubyGem)
 
 
 Install RubyGems
 --------------------
 
+    % gem install kuro-rs
     % bundle install
 
 

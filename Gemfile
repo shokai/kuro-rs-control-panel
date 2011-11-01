@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'kuro-rs'
 gem 'rack'
 gem 'sinatra'
 gem 'thin'

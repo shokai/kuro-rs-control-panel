@@ -2,10 +2,18 @@
 %html
   %head
     %title= @title
+    :javascript
+      var app_root = "#{app_root}";
+    %script{:type => 'application/javascript', :src => "#{app_root}/js/jquery.js"}
+    %script{:type => 'application/javascript', :src => "#{app_root}/js/index.js"}
   %body
     %div#header
       %h1= @title
     %div#main
+      %h2 add IR data
+      %div#ctrls
+        %input{:type => :text, :value => 'name', :id => :input_ir_name}
+        %input{:type => :button, :value => 'add', :id => :btn_add_ir}
       %ul#irs
         - @irs.each do |ir|
           %li{:id => ir.name}

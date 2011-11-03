@@ -69,7 +69,11 @@ post '/ir/:name.json' do
 end
 
 get '/ir/:name' do
-  ir_name = params[:name]
+  ir_name = IR.validate_name(params[:name],
+                             lambda{|name|
+                               redirect "#{app_root}/ir/#{name}"
+                             })
+  
   @ir = IR.where(:name => ir_name).first rescue @ir = nil
   @ir = IR.new(:name => ir_name) unless @ir
   haml :ir

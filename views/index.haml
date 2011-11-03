@@ -19,3 +19,4 @@
         - @irs.each do |ir|
           %li{:id => ir.name}
             %a{:href => "#{app_root}/ir/#{ir.name}"}= ir.name
+            %input{:type => :button, :class => :button_fire, :value => 'send', :name => "#{ir.name}"}

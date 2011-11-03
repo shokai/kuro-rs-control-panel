@@ -40,8 +40,8 @@ post '/kuro-rs.json' do
   end
 end
 
-get '/ir/:name.json' do
-  ir_name = params[:name]
+get '/ir/*.json' do
+  ir_name = params[:splat].first
   ir = IR.where(:name => ir_name).first rescue ir = nil
   if ir
     status 200
@@ -52,8 +52,8 @@ get '/ir/:name.json' do
   end
 end
 
-post '/ir/:name.json' do
-  ir_name = params[:name]
+post '/ir/*.json' do
+  ir_name = params[:splat].first
   data = params['data']
   ir = IR.where(:name => ir_name).first rescue ir = nil
   ir = IR.new(:name => ir_name) unless ir
@@ -68,8 +68,8 @@ post '/ir/:name.json' do
   end
 end
 
-get '/ir/:name' do
-  ir_name = IR.validate_name(params[:name],
+get '/ir/*' do
+  ir_name = IR.validate_name(params[:splat].first,
                              lambda{|name|
                                redirect "#{app_root}/ir/#{name}"
                              })

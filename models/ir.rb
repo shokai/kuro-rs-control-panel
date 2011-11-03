@@ -11,7 +11,7 @@ class IR
   end
 
   def IR.validate_name(name, on_invalid)
-    valid = name.gsub(/^\//,'').gsub(/\/$/,'').gsub(/#{@@conf['ir_name_regexp']}/,'')
+    valid = name.gsub(/^\//,'').gsub(/\/$/,'').gsub(/[^#{@@conf['ir_name_regexp']}]/,'')
     on_invalid.call(valid) if valid != name
     return valid
   end

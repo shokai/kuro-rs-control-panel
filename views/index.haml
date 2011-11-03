@@ -4,7 +4,7 @@
     %title= @title
     :javascript
       var app_root = "#{app_root}";
-      var ir_name_regexp = /#{@@conf['ir_name_regexp']}/g;
+      var ir_name_regexp = /[^#{@@conf['ir_name_regexp']}]/g;
     %script{:type => 'application/javascript', :src => "#{app_root}/js/jquery.js"}
     %script{:type => 'application/javascript', :src => "#{app_root}/js/index.js"}
   %body

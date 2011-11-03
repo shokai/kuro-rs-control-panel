@@ -15,7 +15,8 @@ $(
 
 var display_ir_data = function(data){
     $('#data').html(data);
-    $('#api').html('curl -d "data='+data+'" '+app_root+'/kuro-rs.json');
+    $('#api_name').html('curl -d "name='+ir.name+'" '+app_root+'/kuro-rs.json');
+    $('#api_data').html('curl -d "data='+data+'" '+app_root+'/kuro-rs.json');
     var api_url = location.href+'.json';
     $('.api #get').html($('<a>').attr('href', api_url).html(api_url));
 };

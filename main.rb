@@ -29,6 +29,13 @@ end
 
 post '/kuro-rs.json' do
   data = params[:data]
+  unless data
+    ir_name = params[:name]
+    data = IR.where(:name => ir_name).first.data rescue data = nil
+    if !ir_name or !data
+      throw(:halt, [404, {:error => 'IR data not found'}.to_json])
+    end
+  end
   uri = URI.parse kuro_rs_server
   res = Net::HTTP.start(uri.host, uri.port).post(uri.path, data)
   unless res.code == '200'

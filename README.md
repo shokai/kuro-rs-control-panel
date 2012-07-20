@@ -2,7 +2,7 @@ KURO-RS control panel
 =====================
 KURO-RS Web Interface.
 
-
+<img src="http://shokai.org/archive/file/983470b269ddfd9317400801bc410dfe.png">
 
 Dependencies
 ------------
